@@ -1,0 +1,19 @@
+annabi@Ubuntu:~$ cat > cleandir
+
+#!/bin/bash
+
+read -p "Enter the directory for clean: " DELDIR
+
+if [ -e $DELDIR ]
+        then
+                echo "Directory founded"
+                cd $DELDIR
+                rm -v *.bak *.tmp *.buckup
+                echo "Files with expansion .*.bak *.tmp *.buckup deleted."
+        else
+                echo "ERROR! Directory wasn't found!"
+                exit 2
+fi
+annabi@Ubuntu:~$ chmod +r cleandir
+annabi@Ubuntu:~$ chmod +x cleandir
+annabi@Ubuntu:~$ ./cleandir
