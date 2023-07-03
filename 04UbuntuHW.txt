@@ -1,0 +1,27 @@
+﻿Задание:
+- Написать скрипт очистки директорий. На вход принимает путь к директории. 
+Если директория существует, то удаляет в ней все файлы 
+с расширениями .bak, .tmp, .backup. 
+Если директории нет, то выводит ошибку.
+
+
+annabi@Ubuntu:~$ cat > cleandir
+
+#!/bin/bash
+
+read -p "Enter the directory for clean: " DELDIR
+
+if [ -e $DELDIR ]
+        then
+                echo "Directory founded"
+                cd $DELDIR
+                rm -v *.bak *.tmp *.buckup
+                echo "Files with expansion .*.bak *.tmp *.buckup deleted."
+        else
+                echo "ERROR! Directory wasn't found!"
+                exit 2
+fi
+annabi@Ubuntu:~$ chmod +r cleandir
+annabi@Ubuntu:~$ chmod +x cleandir
+annabi@Ubuntu:~$ ./cleandir
+
